@@ -1,0 +1,182 @@
+[
+    {
+        "group_id": "120363177262413211",
+        "group_name": "Teste de Mensagens"
+    },
+    {
+        "group_id": "120363317206786549",
+        "group_name": "DMZ TERESÓPOLIS RJO_TRL-PIP-13000226"
+    },
+    {
+        "group_id": "120363195349776553",
+        "group_name": "Projeto Guardian"
+    },
+    {
+        "group_id": "120363303090993469",
+        "group_name": "Testes Lenny ( RAT/FORM/ALTGO )"
+    },
+    {
+        "group_id": "120363196794741046",
+        "group_name": "Teste Automação ISP"
+    },
+    {
+        "group_id": "120363204381549452",
+        "group_name": "Alerta Ataque WLE"
+    },
+    {
+        "group_id": "120363187127383452",
+        "group_name": "Alarmes ARC"
+    },
+    {
+        "group_id": "120363141317388406",
+        "group_name": "Flowspec 15200044 | 14001344"
+    },
+    {
+        "group_id": "120363165205539717",
+        "group_name": "DMZ TERESÓPOLIS RJO_TRL-PIP-13000226"
+    },
+    {
+        "group_id": "120363043577397914",
+        "group_name": "GRUPO NOC OPANET"
+    },
+    {
+        "group_id": "120363181585946593",
+        "group_name": "EXT Telecom RJO_AMA-CIP-12000956"
+    },
+    {
+        "group_id": "120363221901713271",
+        "group_name": "Serra Macaé x Altarede"
+    },
+    {
+        "group_id": "5522992023493-1618231260",
+        "group_name": "Leal Porto - Altarede"
+    },
+    {
+        "group_id": "120363130291433269",
+        "group_name": "Fournet x ARC"
+    },
+    {
+        "group_id": "5522974028944-1600188456",
+        "group_name": "Altarede - RapidLink"
+    },
+    {
+        "group_id": "5522997618608-1619620672",
+        "group_name": "Turbonet - Altarede"
+    },
+    {
+        "group_id": "120363199489059842",
+        "group_name": "Rede online x ARc - 13000233"
+    },
+    {
+        "group_id": "120363046237851667",
+        "group_name": "JBM / ALTAREDE"
+    },
+    {
+        "group_id": "120363044272830987",
+        "group_name": "Brascom - 1320001"
+    },
+    {
+        "group_id": "5522999228887-1584140943",
+        "group_name": "INFORR - ARC - 1310010"
+    },
+    {
+        "group_id": "120363030607116664",
+        "group_name": "LINK MASTER - 13000204 / 13000206 / 13000207"
+    },
+    {
+        "group_id": "120363048563101282",
+        "group_name": "ALTAREDE MVZ - 12001096"
+    },
+    {
+        "group_id": "120363143917443586",
+        "group_name": "ACIONAMENTOS ARS"
+    },
+    {
+        "group_id": "120363144275626958",
+        "group_name": "SIMTECH|VELOZNET | 13000228 - 13000230 - 13000237"
+    },
+    {
+        "group_id": "5522981123700-1635535206",
+        "group_name": "NOC+ENG ALTAREDE"
+    },
+    {
+        "group_id": "120363025410943002",
+        "group_name": "WEB Sul - Altarede"
+    },
+    {
+        "group_id": "120363042322670258",
+        "group_name": "Mussel Telecom x ARC"
+    },
+    {
+        "group_id": "5522981376170-1530886730",
+        "group_name": "NovaRedeNet-ARC 1300046"
+    },
+    {
+        "group_id": "5522998157722-1626870281",
+        "group_name": "Alertas ARC - FRIONLINE (1300039)"
+    },
+    {
+        "group_id": "120363091046331631",
+        "group_name": "ZENNET - PIP - 13000211"
+    },
+    {
+        "group_id": "5521999465092-1603138673",
+        "group_name": "NDC - ALTAREDE - 1300152 | 3030014"
+    },
+    {
+        "group_id": "5521999465092-1618319546",
+        "group_name": "PENIEL MMCAM 1200519 / 1200724"
+    },
+    {
+        "group_id": "5521972868444-1614106274",
+        "group_name": "ARC X INTERVEL"
+    },
+    {
+        "group_id": "5522997441196-1616506533",
+        "group_name": "VIANOVA-ALTAREDE -1300127"
+    },
+    {
+        "group_id": "120363032984436788",
+        "group_name": "Bigdot x Altarede | 1300139"
+    },
+    {
+        "group_id": "120363137154437437",
+        "group_name": "Vivalink x Altarede"
+    },
+    {
+        "group_id": "5522992050175-1634661001",
+        "group_name": "OK Virtual - ARC/3030003"
+    },
+    {
+        "group_id": "5521999465092-1566879241",
+        "group_name": "ARC-PTP"
+    },
+    {
+        "group_id": "120363044009995509",
+        "group_name": "ARC-SINTERCOM-1300197"
+    },
+    {
+        "group_id": "5522997618608-1577397707",
+        "group_name": "NOC CORPORATIVO ALTAREDE"
+    },
+    {
+        "group_id": "5521999465092-1615395483",
+        "group_name": "ARC-LESTE - 1300103"
+    },
+    {
+        "group_id": "5521999465092-1570128030",
+        "group_name": "ALTAREDE - V1 TELECOM"
+    },
+    {
+        "group_id": "120363042082008957",
+        "group_name": "H.R. VIRTUAL / ALTAREDE"
+    },
+    {
+        "group_id": "5522997359668-1524147176",
+        "group_name": "Interrupções"
+    },
+    {
+        "group_id": "5522988024445-1581118536",
+        "group_name": "DDoS e ENGENHARIA"
+    }
+]

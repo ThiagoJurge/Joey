@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário RAT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+        input, select, button, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+    <script>
+        // Função para validar o formulário antes de enviar
+        function validateForm() {
+            const id = document.getElementById("entry_825154660").value;
+            const equipe = document.getElementById("entry_387529666").value;
+            const atividade = document.getElementById("entry_313095559").value;
+
+            const validEquipas = [
+                "Equipe Infraestrutura 01", "Equipe Infraestrutura 02", "Equipe Operacional Angra",
+                "Equipe Operacional Campos", "Equipe Operacional Lagos 01", "Equipe Operacional Lagos 02",
+                "Equipe Operacional Linhares", "Equipe Operacional NOF-01", "Equipe Operacional NOF-02",
+                "Equipe Operacional NOF-03", "Equipe Operacional Paraty", "Equipe Operacional Petrópolis",
+                "Equipe Operacional RIO-01", "Equipe Operacional RIO-02", "Equipe Operacional Vitória",
+                "Equipe Operacional Volta Redonda"
+            ];
+
+            const validAtividades = [
+                "Ações Preventivas", "Adequação Companhia Energia", "Ativar Backbone", "Ativar Cliente",
+                "Atividades Administrativas", "Atividades Para Ampliação de Backbone", "Coletar Curvas",
+                "Conjunta", "Consertos ou Logística de veículos", "Formatação de fibras", "Logística de Materiais",
+                "Manutenção/Verificação de Infraestrutura Site", "Monitoramento com OTDR", "Testes de RFC",
+                "Verificar Atenuações", "Verificar Equipamentos (módulos, switchs, cordões e etc)",
+                "Verificar Rompimento", "Vistoria"
+            ];
+
+            if (isNaN(id) || id === '') {
+                alert("ID deve ser um número inteiro.");
+                return false;
+            }
+
+            if (!validEquipas.includes(equipe)) {
+                alert("Equipe inválida.");
+                return false;
+            }
+
+            if (!validAtividades.includes(atividade)) {
+                alert("Atividade inválida.");
+                return false;
+            }
+
+            return true;
+        }
+
+        // Função para enviar o formulário via AJAX
+        function submitForm(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            // Coleta os dados do formulário
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+
+            // Envia a requisição POST com o tipo de conteúdo como JSON
+            fetch('/send_carimbo_rat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert(data.message); // Exibe a mensagem retornada
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Erro ao enviar o formulário.');
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulário RAT</h1>
+        <form id="carimboForm" action="/send_carimbo_rat" method="post" onsubmit="submitForm(event);">
+            <label for="entry_825154660">ID:</label>
+            <input type="text" id="entry_825154660" name="entry_825154660" required>
+
+            <label for="entry_387529666">Equipe:</label>
+            <select id="entry_387529666" name="entry_387529666" required>
+                <option value="">Selecione a Equipe</option>
+                <option>Equipe Infraestrutura 01</option>
+                <option>Equipe Infraestrutura 02</option>
+                <option>Equipe Operacional Angra</option>
+                <option>Equipe Operacional Campos</option>
+                <option>Equipe Operacional Lagos 01</option>
+                <option>Equipe Operacional Lagos 02</option>
+                <option>Equipe Operacional Linhares</option>
+                <option>Equipe Operacional NOF-01</option>
+                <option>Equipe Operacional NOF-02</option>
+                <option>Equipe Operacional NOF-03</option>
+                <option>Equipe Operacional Paraty</option>
+                <option>Equipe Operacional Petrópolis</option>
+                <option>Equipe Operacional RIO-01</option>
+                <option>Equipe Operacional RIO-02</option>
+                <option>Equipe Operacional Vitória</option>
+                <option>Equipe Operacional Volta Redonda</option>
+            </select>
+
+            <label for="entry_1071483611">Departamento:</label>
+            <select id="entry_1071483611" name="entry_1071483611" required>
+                <option value="">Selecione o Departamento</option>
+                <option>NOC</option>
+                <option>O&M</option>
+                <option>Projetos</option>
+                <option>Implantação</option>
+                <option>Engenharia</option>
+            </select>
+
+            <label for="entry_2130349081">Origem:</label>
+            <input type="text" id="entry_2130349081" name="entry_2130349081" required>
+
+            <label for="entry_1932602901">Destino:</label>
+            <input type="text" id="entry_1932602901" name="entry_1932602901" required>
+
+            <label for="entry_313095559">Atividade a ser desempenhada:</label>
+            <select id="entry_313095559" name="entry_313095559" required>
+                <option value="">Selecione a Atividade</option>
+                <option>Ações Preventivas</option>
+                <option>Adequação Companhia Energia</option>
+                <option>Ativar Backbone</option>
+                <option>Ativar Cliente</option>
+                <option>Atividades Administrativas</option>
+                <option>Atividades Para Ampliação de Backbone</option>
+                <option>Coletar Curvas</option>
+                <option>Conjunta</option>
+                <option>Consertos ou Logística de veículos</option>
+                <option>Formatação de fibras</option>
+                <option>Logística de Materiais</option>
+                <option>Manutenção/Verificação de Infraestrutura Site</option>
+                <option>Monitoramento com OTDR</option>
+                <option>Testes de RFC</option>
+                <option>Verificar Atenuações</option>
+                <option>Verificar Equipamentos (módulos, switchs, cordões e etc)</option>
+                <option>Verificar Rompimento</option>
+                <option>Vistoria</option>
+            </select>
+
+            <label for="entry_1202092668">Clientes Afetados:</label>
+            <textarea id="entry_1202092668" name="entry_1202092668" rows="4" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>

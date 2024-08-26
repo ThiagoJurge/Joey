@@ -1,0 +1,1 @@
+subir o container: docker-compose up -d

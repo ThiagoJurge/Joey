@@ -1,0 +1,12 @@
+version: '4.33.0'
+
+services:
+  backend:
+    build: .
+    image: lenny-backend:v1.0.0 # Tag válida
+    ports:
+      - "81:81"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=production

@@ -1,0 +1,6 @@
+flask
+requests
+mysql-connector-python
+beautifulsoup4
+schedule
+selenium
