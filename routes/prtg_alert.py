@@ -1,14 +1,14 @@
 from flask import Blueprint, request, jsonify
-from models.group_fetcher import GroupFetcher
+from models.ZApiGroupExtractor import ZApiGroupExtractor
 from models.message_sender import MessageSender
 from models.alarm_handler import AlarmHandler
 from config import Config
 
 prtg_alert = Blueprint("prtg", __name__)
 
-group_fetcher = GroupFetcher(Config.GROUP_JSON_PATH)
+ZApiGroupExtractor = ZApiGroupExtractor()
 message_sender = MessageSender(Config.API_URL)
-alarm_handler = AlarmHandler(group_fetcher, message_sender)
+alarm_handler = AlarmHandler(ZApiGroupExtractor, message_sender)
 
 
 @prtg_alert.route("/send_message", methods=["POST"])
