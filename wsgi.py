@@ -4,7 +4,7 @@ from app import app as application
 from scripts.db_listener import DatabaseMonitor, db_config
 
 # Adicione o diretório do projeto ao sys.path se necessário
-# sys.path.insert(0, "/home/gabrielm/Lenny")
+sys.path.insert(0, "/home/gabrielm/Lenny")
 
 def start_db_monitor():
     monitor = DatabaseMonitor(db_config)
