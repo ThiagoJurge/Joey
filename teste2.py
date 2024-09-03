@@ -2,10 +2,10 @@ import requests
 import re
 
 # URLs e Headers
-url = "https://api.z-api.io/instances/3D45F21828F6D0AC55D4DE7A807E3216/token/273FE76E3D2D7F6B181412C8/chats"
-url_metadata = "https://api.z-api.io/instances/3D45F21828F6D0AC55D4DE7A807E3216/token/273FE76E3D2D7F6B181412C8/group-metadata/"
+url = "https://api.z-api.io/instances/3D491D73B941709AD90372A6E7FD7815/token/A209DF3059CBF48066807E0B/chats"
+url_metadata = "https://api.z-api.io/instances/3D491D73B941709AD90372A6E7FD7815/token/A209DF3059CBF48066807E0B/group-metadata/"
 headers = {
-    'Client-Token': 'F49c1fc59ca1a4e13abc1453618c6472bS',
+    'Client-Token': 'Fe5eb3bad5f534fcda5a8be517c452c04S',
     'Content-Type': 'application/json'
 }
 
