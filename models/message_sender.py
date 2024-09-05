@@ -3,7 +3,7 @@ from config import Config
 
 
 class MessageSender:
-    def __init__(self, api_url):
+    def __init__(self, api_url=None):
         self.api_url = Config.NEW_API_URL
         self.headers = {
             "Client-Token": Config.CLIENT_TOKEN,

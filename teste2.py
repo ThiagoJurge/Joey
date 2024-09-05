@@ -2,7 +2,7 @@ import requests
 import re
 
 # URLs e Headers
-url = "https://api.z-api.io/instances/3D491D73B941709AD90372A6E7FD7815/token/A209DF3059CBF48066807E0B/chats"
+url = "https://api.z-api.io/instances/3D491D73B941709AD90372A6E7FD7815/token/A209DF3059CBF48066807E0B/update-webhook-received"
 url_metadata = "https://api.z-api.io/instances/3D491D73B941709AD90372A6E7FD7815/token/A209DF3059CBF48066807E0B/group-metadata/"
 headers = {
     'Client-Token': 'Fe5eb3bad5f534fcda5a8be517c452c04S',
@@ -14,7 +14,8 @@ def extract_numbers(text):
     return re.findall(r'\b\d{7,8}\b', text)
 
 # Requisição para obter os grupos
-response = requests.get(url, headers=headers).json()
+response = requests.put(url, headers=headers).json()
+print(response)
 
 # Iteração sobre os grupos
 for data in response:

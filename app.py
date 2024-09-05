@@ -1,6 +1,7 @@
 from flask import Flask
 from routes.prtg_alert import prtg_alert
 from routes.carimbo_rat import carimbo_rat_bp
+from routes.webhook_zapi import webhook_zapi
 import threading
 from scripts.db_listener import DatabaseMonitor, db_config
 
@@ -8,6 +9,7 @@ app = Flask(__name__)
 
 app.register_blueprint(prtg_alert)
 app.register_blueprint(carimbo_rat_bp)
+app.register_blueprint(webhook_zapi)
 
 @app.errorhandler(405)
 def method_not_allowed(e):

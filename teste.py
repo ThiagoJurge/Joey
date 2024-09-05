@@ -1,18 +1,44 @@
 import requests
+import json
 
-url = "https://api.z-api.io/instances/3D43CEA9FCF000A02C7302172B1F54BB/token/C3FFE358EACBFC9BF0619541/send-text"
+# URL do webhook que você deseja testar
+webhook_url = 'https://187.16.255.94:9999/webhook-receiver'
 
+# Payload de exemplo que será enviado no corpo da requisição
+payload = {
+    "senderLid": "552199999999",
+    "phone": "552199999999",
+    "text": {
+        "message": "Esta é uma mensagem de teste via webhook."
+    },
+    "isGroup": False,
+    "type": "ReceivedCallBack",
+    "messageId": "ABCD1234",
+    "photo": "https://example.com/user_photo.jpg",
+    "status": "RECEIVED",
+    "momment": 1625493600
+}
+
+# Cabeçalhos da requisição
 headers = {
-    'Client-Token': 'F2723bf533e91476e9da2b6d27ab660a6S',
     'Content-Type': 'application/json'
 }
 
-payload = {
-        "phone": "120363187127383452-group",
-        "message": "Donovan me disse que vai pagar a rodada de pizza amanhã",
-}
+# Função que envia a requisição POST para o webhook
+def test_webhook():
+    try:
+        # Enviando a requisição POST
+        response = requests.post(webhook_url, data=json.dumps(payload), headers=headers)
+        
+        # Verificando a resposta
+        if response.status_code == 200:
+            print(f"Sucesso! Webhook respondeu: {response.json()}")
+        else:
+            print(f"Erro ao enviar requisição: {response.status_code} - {response.text}")
 
-response = requests.post(url, json=payload, headers=headers)
+    except Exception as e:
+        print(f"Erro ao conectar ao webhook: {str(e)}")
 
-print(response.status_code)
-print(response.text)
+# Executa o teste
+if __name__ == '__main__':
+    test_webhook()
