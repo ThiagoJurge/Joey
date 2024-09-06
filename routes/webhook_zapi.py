@@ -33,7 +33,7 @@ def extract_as_numbers(text):
 
 @webhook_zapi.route("//webhook-receiver", methods=["POST"])
 def webhook_receiver():
-    print(request.json)
+    print('fi-ui, olha a mensagem')
     message_text = []
     try:
         # Captura os dados recebidos no webhook
