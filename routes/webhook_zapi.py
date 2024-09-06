@@ -19,19 +19,14 @@ def get_group_metadata(phone):
     response = requests.get(url_metadata, headers=headers).json()
     return response["description"]
 
-def extract_as_numbers(text_list):
+def extract_as_numbers(text):
     # Regex to match "AS" followed by digits
     pattern = r'AS(\d+)'
 
-    as_numbers = []
+    # Find all matches in the entire text
+    matches = re.findall(pattern, text)
 
-    # Loop over each text in the list
-    for text in text_list:
-        # Find all matches of the pattern in the current text
-        matches = re.findall(pattern, text)
-        as_numbers.extend(matches)  # Add the found matches to the result list
-
-    return as_numbers
+    return matches
 
 
 
