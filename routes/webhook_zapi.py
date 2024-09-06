@@ -33,6 +33,7 @@ def extract_as_numbers(text):
 
 @webhook_zapi.route("//webhook-receiver", methods=["POST"])
 def webhook_receiver():
+    print(request.json)
     message_text = []
     try:
         # Captura os dados recebidos no webhook
@@ -44,6 +45,7 @@ def webhook_receiver():
 
         # Verifica se o número @5522999920563 está na mensagem
         if "@5522999920563" in message and "bgp" in message:
+            print("mensagem com bgp ")
             phone_to_send = phone
             group_description = get_group_metadata(phone)
             as_list = extract_as_numbers(group_description)
