@@ -14,11 +14,7 @@ def get_bgp_items_by_asn(asn):
 
     # Connect to Zabbix API
     zabbix_server = "http://187.16.255.201/zabbix/"
-    zapi = ZabbixAPI(
-        zabbix_server,
-        user="thiago.jurge@altarede.com.br",
-        password="Ac82338a",
-    )
+    zapi = ZabbixAPI(zabbix_server, user="thiago.jurge@altarede.com.br", password="Ac82338a")
 
     for host_id in host_list:
         # Loop over the keys and search items
@@ -42,13 +38,3 @@ def get_bgp_items_by_asn(asn):
     zapi._logout()
 
     return results
-
-
-asn = "262739"  # Pass the ASN as a string
-
-# Get BGP items filtered by ASN
-bgp_items = get_bgp_items_by_asn(asn)
-
-# Print the results
-for item in bgp_items:
-    print(item)
