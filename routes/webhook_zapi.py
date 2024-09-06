@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from models.message_sender import MessageSender
 from config import Config
+from teste import get_bgp_items_by_asn
 import requests, re
 
 
@@ -32,6 +33,7 @@ def extract_as_numbers(text):
 
 @webhook_zapi.route("//webhook-receiver", methods=["POST"])
 def webhook_receiver():
+    message_text = []
     try:
         # Captura os dados recebidos no webhook
         data = request.json
@@ -45,8 +47,13 @@ def webhook_receiver():
             phone_to_send = phone
             group_description = get_group_metadata(phone)
             as_list = extract_as_numbers(group_description)
+
+            for asn in as_list:
+                informations = get_bgp_items_by_asn(asn)
+                message_text.append(informations)
+
             text_message = (
-                f"{as_list}"  # Aqui você pode customizar a mensagem, se necessário
+                f"{message_text}"  # Aqui você pode customizar a mensagem, se necessário
             )
 
             # Encaminha a mensagem via Z-API
