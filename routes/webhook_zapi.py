@@ -48,11 +48,15 @@ def webhook_receiver():
             print("mensagem com bgp ")
             phone_to_send = phone
             group_description = get_group_metadata(phone)
+            print(group_description)
             as_list = extract_as_numbers(group_description)
+            print(as_list)
 
             for asn in as_list:
+                print(asn)
                 informations = get_bgp_items_by_asn(asn)
                 message_text.append(informations)
+
             print("message:", message_text)
             text_message = (
                 f"Tem algo aqui: \n{message_text}"  # Aqui você pode customizar a mensagem, se necessário
