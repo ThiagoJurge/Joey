@@ -57,9 +57,9 @@ def webhook_receiver():
                 informations = get_bgp_items_by_asn(asn)
                 message_text.append(informations)
 
-            print("message:", message_text)
+            print("message:", str(message_text))
             text_message = (
-                f"Tem algo aqui: \n{message_text}"  # Aqui você pode customizar a mensagem, se necessário
+                f"Tem algo aqui: \n{str(message_text)}"  # Aqui você pode customizar a mensagem, se necessário
             )
 
             # Encaminha a mensagem via Z-API
