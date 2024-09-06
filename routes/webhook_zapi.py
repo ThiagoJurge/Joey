@@ -51,7 +51,7 @@ def webhook_receiver():
             for asn in as_list:
                 informations = get_bgp_items_by_asn(asn)
                 message_text.append(informations)
-
+            print("message:", message_text)
             text_message = (
                 f"{message_text}"  # Aqui você pode customizar a mensagem, se necessário
             )
