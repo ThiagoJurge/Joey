@@ -55,7 +55,7 @@ def webhook_receiver():
                 message_text.append(informations)
             print("message:", message_text)
             text_message = (
-                f"{message_text}"  # Aqui você pode customizar a mensagem, se necessário
+                f"Tem algo aqui: \n{message_text}"  # Aqui você pode customizar a mensagem, se necessário
             )
 
             # Encaminha a mensagem via Z-API
