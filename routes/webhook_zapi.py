@@ -1,31 +1,62 @@
 from flask import Blueprint, request, jsonify
 from models.message_sender import MessageSender
+from config import Config
+import requests
+
 
 webhook_zapi = Blueprint("webhook_zapi", __name__)
 message_sender = MessageSender()
 
 
+def get_group_metadata(phone):
+    """Obtém os metadados de um grupo específico."""
+    base_url = Config.NEW_API_URL
+    headers = {
+        "Client-Token": Config.CLIENT_TOKEN,
+        "Content-Type": "application/json",
+    }
+    url_metadata = f"{base_url}/group-metadata/{phone}"
+    response = requests.get(url_metadata, headers=headers).json()
+    return response["description"]
+
+
 @webhook_zapi.route("//webhook-receiver", methods=["POST"])
 def webhook_receiver():
+
     try:
         # Captura os dados recebidos no webhook
         data = request.json
 
         # Acessa a mensagem de texto recebida
-        message = data.get('text', {}).get('message', '')
-        phone = data.get('phone')
+        message = data.get("text", {}).get("message", "")
+        phone = data.get("phone")
 
         # Verifica se o número @5522999920563 está na mensagem
-        if '@5522999920563' in message:
+        if "@5522999920563" in message and "bgp" in message:
             phone_to_send = phone
-            text_message = message  # Aqui você pode customizar a mensagem, se necessário
+            text_message = (
+                f"{get_group_metadata(phone)}"  # Aqui você pode customizar a mensagem, se necessário
+            )
 
             # Encaminha a mensagem via Z-API
             message_sender.send_message(phone_to_send, text_message)
 
-            return jsonify({"status": "success", "message": "Mensagem encaminhada via Z-API"}), 200
+            return (
+                jsonify(
+                    {"status": "success", "message": "Mensagem encaminhada via Z-API"}
+                ),
+                200,
+            )
         else:
-            return jsonify({"status": "ignored", "message": "Mensagem não contém o número esperado"}), 200
+            return (
+                jsonify(
+                    {
+                        "status": "ignored",
+                        "message": "Mensagem não contém o número esperado",
+                    }
+                ),
+                200,
+            )
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
