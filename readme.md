@@ -1,1 +1,1 @@
-subir o container: docker-compose up -d
+subir o container: docker-compose up --build -d

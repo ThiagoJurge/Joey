@@ -8,7 +8,7 @@ sys.path.insert(0, "/home/gabrielm/Lenny")
 
 def start_db_monitor():
     monitor = DatabaseMonitor(db_config)
-    monitor.monitor_changes(interval=10)
+    monitor.monitor_changes(interval=60)
 
 # Inicia o monitoramento do banco de dados em um thread separado
 db_monitor_thread = threading.Thread(target=start_db_monitor)

@@ -8,14 +8,17 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Instala o Gunicorn
-RUN pip install gunicorn
+# Instala o Gunicorn e o Supervisord
+RUN pip install gunicorn supervisor
 
 # Copia todo o conteúdo do diretório atual para o diretório de trabalho dentro do container
 COPY . .
 
+# Copia o arquivo de configuração do supervisord
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 # Exponha a porta 81
 EXPOSE 81
 
-# Define o comando para rodar a aplicação com Gunicorn na porta 81
-CMD ["gunicorn", "-b", "0.0.0.0:81", "app:app"]
+# Define o comando para rodar o supervisor que gerenciará os processos
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

@@ -1,4 +1,5 @@
 flask
+Flask-Caching
 requests
 mysql-connector-python
 beautifulsoup4
