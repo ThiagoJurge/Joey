@@ -1,0 +1,4 @@
+2024-09-17 16:11:42,579 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2024-09-17 16:11:42,584 INFO supervisord started with pid 1
+2024-09-17 16:11:43,591 INFO spawned: 'gunicorn' with pid 7
+2024-09-17 16:11:44,839 INFO success: gunicorn entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

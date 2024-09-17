@@ -19,7 +19,6 @@ def create_arc_tools_blueprint(cache: Cache):
         asn = data.get("asn")
         ripe = RipeQuery()
         data = ripe.verify_asn(str(asn))
-        print(data)
         return data, 200  # Certifique-se de retornar a resposta como JSON
 
     return arc_tools

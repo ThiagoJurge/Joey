@@ -1,5 +1,4 @@
 import re
-from models.ZApiGroupExtractor import ZApiGroupExtractor
 
 class AlarmHandler:
     def __init__(self, group_fetcher, message_sender):
